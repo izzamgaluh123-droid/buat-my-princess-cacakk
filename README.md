@@ -1,71 +1,54 @@
-<!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Untuk My Princess 💖</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Dasar & Background Animasi */
-        body {
+        /* Mengizinkan seluruh halaman untuk di-scroll */
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
             background: linear-gradient(135deg, #ffc0cb 0%, #ffe4e1 100%);
             font-family: 'Poppins', sans-serif;
+        }
+
+        body {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            overflow: hidden; /* Mencegah scroll di body luar */
+            padding: 50px 0; /* Memberi ruang scroll atas bawah */
+            overflow-x: hidden;
             position: relative;
         }
 
-        /* Container Lebih Lebar & Mewah */
+        /* Container Utama */
         .container {
             background: rgba(255, 255, 255, 0.95);
             padding: 40px;
             border-radius: 30px;
             box-shadow: 0 15px 35px rgba(255, 20, 147, 0.2);
             text-align: center;
-            max-width: 850px; 
-            width: 90%;
+            max-width: 800px; 
+            width: 85%;
             border: 8px solid #ffffff;
-            position: relative;
             z-index: 10;
             animation: bounceIn 1.2s ease;
-            max-height: 85vh; /* Biar gak mentok layar */
-            display: flex;
-            flex-direction: column;
         }
 
         h1 {
             color: #ff1493;
             font-size: 2.2rem;
-            margin-bottom: 15px;
-            text-shadow: 1px 1px #ffb6c1;
+            margin-bottom: 20px;
         }
 
-        /* Area Pesan yang Bisa di-Scroll */
-        .message-box {
+        .text-content {
             color: #444;
-            line-height: 1.8;
-            font-size: 1.1rem;
+            line-height: 2;
+            font-size: 1.15rem;
             text-align: center;
-            margin-bottom: 25px;
-            background: rgba(255, 182, 193, 0.1);
-            padding: 20px;
-            border-radius: 20px;
-            overflow-y: auto; /* Aktifkan Scroll Vertikal */
-            max-height: 350px; /* Tinggi maksimal sebelum scroll muncul */
-            border: 1px dashed #ff69b4;
-        }
-
-        /* Kustomisasi Scrollbar Lucu */
-        .message-box::-webkit-scrollbar {
-            width: 8px;
-        }
-        .message-box::-webkit-scrollbar-thumb {
-            background: #ff69b4;
-            border-radius: 10px;
+            margin-bottom: 30px;
         }
 
         /* Tombol */
@@ -73,54 +56,49 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 30px;
-            margin-top: 10px;
-            min-height: 80px;
-            position: relative;
+            gap: 40px;
+            margin-top: 20px;
+            min-height: 100px;
         }
 
         button {
-            padding: 15px 45px;
+            padding: 15px 50px;
             font-size: 1.2rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.3s;
             font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         #btnYa {
             background: linear-gradient(45deg, #ff69b4, #ff1493);
             color: white;
-            z-index: 11;
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.3);
         }
 
         #btnYa:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
         }
 
         #btnTidak {
             background-color: #fbced7;
             color: #ff1493;
-            position: absolute;
-            transition: 0.2s all ease;
+            position: absolute; /* Supaya bisa lari bebas */
         }
 
-        /* Hati Berjatuhan */
+        /* Animasi Hati */
         .heart {
-            position: absolute;
+            position: fixed; /* Tetap di layar walau di-scroll */
             color: #ff69b4;
             font-size: 20px;
             top: -20px;
-            user-select: none;
             z-index: 1;
             animation: fall linear forwards;
         }
 
         @keyframes fall {
-            to { transform: translateY(105vh) rotate(360deg); }
+            to { transform: translateY(110vh) rotate(360deg); }
         }
 
         @keyframes bounceIn {
@@ -128,86 +106,75 @@
             100% { opacity: 1; transform: scale(1); }
         }
 
-        .emoji-header { font-size: 50px; margin-bottom: 5px; }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 1.5rem; }
-            .container { width: 95%; padding: 20px; }
-            .message-box { font-size: 0.95rem; max-height: 300px; }
-        }
+        .emoji-header { font-size: 60px; }
     </style>
 </head>
 <body>
 
-<div class="container" id="mainContainer">
-    <span class="emoji-header">🥺🌸✨</span>
+<div class="container" id="mainCard">
+    <div class="emoji-header">🥺🌸✨</div>
     <h1>Maafin Aku Ya Sayang?</h1>
     
-    <div class="message-box">
+    <div class="text-content">
         <strong>Sayangku, my princess, my bini, my sawit, my everyting</strong><br><br>
-        Aku tahu kamu lagi marah sama aku sekarang, dan aku nggak nyalahin kamu sama sekali. Mungkin aku emang sering bikin kamu kecewa tanpa sadar, entah karena aku kurang perhatian atau kata-kataku yang kadang nggak pas. Aku minta maaf banget dari hati yang paling dalam.<br><br>
-        Kamu adalah orang yang paling berharga buat aku, dan liat kamu sedih atau marah gara-gara aku bikin hatiku ikut sakit. Aku janji deh, mulai sekarang aku bakal lebih peka lagi sama perasaanmu. Kita kan <strong>pasangan plenger</strong>, saling jaga dan saling lengkapin.<br><br>
-        Aku nggak mau kita ribut-ribut gini terus, karena tanpa kamu, hari-hariku bakal sepi banget. Tolong maafin aku ya, cintaku? Besok pagi aku jemput dan kita ngobrol santai sambil makan-makan favoritmu, gimana? Aku sayang kamu lebih dari apa pun. <br><br>
+        Aku tahu kamu lagi marah sama aku sekarang, dan aku nggak nyalahin kamu sama sekali. Mungkin aku emang sering bikin kamu kecewa tanpa sadar, entah karena aku kurang perhatian atau kata-kataku yang kadang nggak pas.<br><br>
+        Aku minta maaf banget dari hati yang paling dalam. Kamu adalah orang yang paling berharga buat aku, dan liat kamu sedih atau marah gara-gara aku bikin hatiku ikut sakit.<br><br>
+        Aku janji deh, mulai sekarang aku bakal lebih peka lagi sama perasaanmu. Kita kan <strong>pasangan plenger</strong>, saling jaga dan saling lengkapin.<br><br>
+        Aku nggak mau kita ribut-ribut gini terus, karena tanpa kamu, hari-hariku bakal sepi banget. Tolong maafin aku ya, cintaku? Besok pagi aku jemput dan kita ngobrol santai sambil makan-makan favoritmu, gimana? <br><br>
+        Aku sayang kamu lebih dari apa pun.<br>
         <strong>Peluk erat dari jauh dulu! ❤️❤️❤️</strong>
     </div>
 
     <div class="buttons">
-        <button id="btnYa" onclick="berhasil()">Ya, Maafin!</button>
-        <button id="btnTidak" onmouseover="lari()" onclick="lari()">Nggak!</button>
+        <button id="btnYa" onclick="berhasil()">Iyaa!</button>
+        <button id="btnTidak" onmouseover="lari()" onclick="lari()">Enggakk</button>
     </div>
 </div>
 
 <script>
-    // 1. Efek Hati Berjatuhan (Background)
-    function createHeart(emoji = '❤️') {
+    // Efek Hati Background
+    function createHeart() {
         const heart = document.createElement('div');
         heart.classList.add('heart');
-        heart.innerHTML = emoji;
+        heart.innerHTML = '❤️';
         heart.style.left = Math.random() * 100 + 'vw';
         heart.style.animationDuration = Math.random() * 2 + 3 + 's';
-        heart.style.opacity = Math.random() + 0.5;
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 5000);
     }
-    setInterval(() => createHeart('❤️'), 400);
+    setInterval(createHeart, 400);
 
-    // 2. Tombol "Nggak" yang Kabur
+    // Tombol Enggakk Kabur
     function lari() {
         const btnTidak = document.getElementById('btnTidak');
-        const x = Math.random() * (window.innerWidth - 150);
-        const y = Math.random() * (window.innerHeight - 100);
-        btnTidak.style.position = 'fixed';
+        // Posisi random agar tidak keluar layar
+        const x = Math.random() * (window.innerWidth - 120);
+        const y = Math.random() * (window.innerHeight - 50);
+        
         btnTidak.style.left = x + 'px';
         btnTidak.style.top = y + 'px';
     }
 
-    // 3. Final Surprise (Klik Ya)
+    // Kejutan saat klik Iyaa
     function berhasil() {
-        const container = document.getElementById('mainContainer');
-        container.innerHTML = `
-            <div style="animation: bounceIn 1s ease;">
-                <span style="font-size: 80px;">🥰</span>
+        const card = document.getElementById('mainCard');
+        card.innerHTML = `
+            <div style="animation: bounceIn 0.8s ease;">
+                <span style="font-size: 80px;">🥰❤️</span>
                 <h1 style="color: #ff1493;">Yeeay! Makasih Sayang!</h1>
-                <div class="message-box" style="border: none; background: transparent;">
-                    <p style="font-size: 1.3rem; color: #444;">
-                        Makasih udah mau maafin aku. <br>
-                        Janji besok pagi aku jemput kita makan enak! 🌸<br><br>
-                        <strong>I Love You More Than Anything! ❤️</strong>
-                    </p>
-                </div>
-                <button onclick="window.location.href='https://wa.me/?text=Iya+sayang,+aku+maafin!+Besok+jemput+ya! ❤️'" 
-                        style="background: #25d366; color: white;">
-                    Kabarin Aku di WhatsApp!
+                <p style="font-size: 1.3rem; color: #444; line-height: 1.8;">
+                    Makasih udah dimaafin. Kamu emang yang terbaik!<br>
+                    Besok pagi siap-siap ya, aku jemput buat makan enak! 🌸<br><br>
+                    <strong>I Love You So Much!</strong>
+                </p>
+                <button onclick="window.location.href='https://wa.me/?text=Iya+sayang,+aku+maafin!+Jemput+besok+ya!'" 
+                        style="background: #25d366; color: white; margin-top: 20px;">
+                    Kabarin di WhatsApp!
                 </button>
             </div>
         `;
-        
-        // Hujan hati jadi SANGAT DERAS
-        setInterval(() => {
-            createHeart('💖');
-            createHeart('❤️');
-            createHeart('✨');
-        }, 100);
+        // Hujan hati lebih deras
+        setInterval(createHeart, 100);
     }
 </script>
 
